@@ -1,30 +1,34 @@
 package com.showcase.nullability.jetbrains;
 
+//import java.util.Collections;
 public class Employee {
 
-  private String name;
-  private int age;
-  private String address;
+	private final String name;
 
-  public Employee() {
-    this("", 0, "");
-  }
+	private final ThreadLocal<Integer> age = ThreadLocal.withInitial(() -> 0);
 
-  public Employee(String name, int age, String address) {
-    this.name = name;
-    this.age = age;
-    this.address = address;
-  }
+	private String address;
 
-  public String getName() {
-    return name;
-  }
+	public Employee() {
+		this("", 0, "");
+	}
 
-  public int getAge() {
-    return age;
-  }
+	public Employee(String name, int age, String address) {
+		this.name = name;
+		this.age.set(age);
+		this.address = address;
+	}
 
-  public String getAddress() {
-    return address;
-  }
+	public String getName() {
+		return name;
+	}
+
+	public int getAge() {
+		return age.get();
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
 }

@@ -19,24 +19,25 @@ import org.springframework.lang.Nullable;
  */
 public class SpringAnnotation {
 
-  @NonNull
-  String firstName;
+	@NonNull
+	String firstName;
 
-  @NonNull
-  String lastName;
+	@NonNull
+	String lastName;
 
-  @Nullable
-  String nickName;
+	@Nullable
+	String nickName;
 
-  public static void main(String[] args) {
-    SpringAnnotation springAnnotation = new SpringAnnotation();
-    String fullName = springAnnotation.getNickName();
-    System.out.println(fullName.toLowerCase());     // warning
-    System.out.println(springAnnotation.firstName);
-    System.out.println(springAnnotation.lastName);
-  }
+	public static void main(String[] args) {
+		SpringAnnotation springAnnotation = new SpringAnnotation();
+		String fullName = springAnnotation.getNickName();
+		System.out.println(fullName.toLowerCase()); // warning
+		System.out.println(springAnnotation.firstName);
+		System.out.println(springAnnotation.lastName);
+	}
 
-  public String getNickName() {
-    return nickName;
-  }
+	public String getNickName() {
+		return nickName;
+	}
+
 }

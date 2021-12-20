@@ -17,51 +17,53 @@ import org.jetbrains.annotations.Nullable;
 
  */
 public class JetBrainAnnotation {
-  @NotNull
-  String firstName = "john";
 
-  @Nullable
-  String nickName = "jj";
+	@NotNull
+	String firstName = "john";
 
-  public static void main(String[] args) {
+	@Nullable
+	String nickName = "jj";
 
-    JetBrainAnnotation jbs = new JetBrainAnnotation();
+	public static void main(String[] args) {
 
-    passParamToNotNullArg(null, "test");
+		JetBrainAnnotation jbs = new JetBrainAnnotation();
 
-    // return value should not be null
-    System.out.println(returnNotNull());
+		passParamToNotNullArg(null, "test");
 
-    // return value may be null
-    System.out.println(returnNullable());
+		// return value should not be null
+		System.out.println(returnNotNull());
 
-    // set firstName as nll
-    jbs.setFirstName(null);
+		// return value may be null
+		System.out.println(returnNullable());
 
-    // set nickName as null
-    jbs.setNickName(null);
+		// set firstName as nll
+		jbs.setFirstName(null);
 
-  }
+		// set nickName as null
+		jbs.setNickName(null);
 
-  public static void passParamToNotNullArg(@Nullable String str, @NotNull String str2) {
-    System.out.println(str + str2); // now that str is nullable, need to use NPE check
-  }
+	}
 
-  @NotNull
-  public static  String returnNotNull() {
-    return null;
-  }
+	public static void passParamToNotNullArg(@Nullable String str, @NotNull String str2) {
+		System.out.println(str + str2); // now that str is nullable, need to use NPE check
+	}
 
-  @Nullable
-  public static String returnNullable() {
-    return null;
-  }
+	@NotNull
+	public static String returnNotNull() {
+		return null;
+	}
 
-  public void setFirstName(@NotNull String firstName) {
-    this.firstName = firstName;
-  }
+	@Nullable
+	public static String returnNullable() {
+		return null;
+	}
 
-  public void setNickName(@Nullable String nickName) {
-    this.nickName = nickName;
-  }
+	public void setFirstName(@NotNull String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setNickName(@Nullable String nickName) {
+		this.nickName = nickName;
+	}
+
 }
